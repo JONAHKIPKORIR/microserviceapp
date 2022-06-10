@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustAuthController;
+use App\Http\Controllers\EventsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,5 +34,8 @@ Route::post('/user_login', [CustAuthController::class, 'userLogin'])->name('user
 
 Route::get('/dashboard', [CustAuthController::class, 'dashboard']);
 Route::get('/logout', [CustAuthController::class, 'logout'])->name('logout');
+//
 
-Route::get('/eventform', [CustAuthController::class, 'eventform']);
+//Events
+Route::get('/eventform', [EventsController::class, 'eventform']);
+Route::post('/register_event',[EventsController::class, 'registerEvent'])->name('register_event');
