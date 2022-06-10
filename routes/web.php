@@ -33,3 +33,5 @@ Route::post('/user_login', [CustAuthController::class, 'userLogin'])->name('user
 
 Route::get('/dashboard', [CustAuthController::class, 'dashboard']);
 Route::get('/logout', [CustAuthController::class, 'logout'])->name('logout');
+
+Route::get('/eventform', [CustAuthController::class, 'eventform']);

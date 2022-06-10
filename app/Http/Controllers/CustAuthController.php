@@ -87,6 +87,10 @@ class CustAuthController extends Controller
             
         }
     }
+
+    public function eventform(){
+        return view('eventform');
+    }
 }
 
 
