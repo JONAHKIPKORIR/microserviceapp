@@ -84,7 +84,7 @@ class CustAuthController extends Controller
         //if user is logged in
         if (Session::has('loginId')) {
             Session::pull('loginId');
-           return redirect('login');
+            return redirect()->route('login');
             
         }
     }

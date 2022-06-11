@@ -46,7 +46,7 @@
 
                     <br>
 
-                    <p>Already Registered?  <a href="login">Login Here</a></p>
+                    <p>Already Registered?  <a style="background: cadetblue" href="{{route('login')}}">Login Here</a></p>
                 </form>
             </div>
         </div>

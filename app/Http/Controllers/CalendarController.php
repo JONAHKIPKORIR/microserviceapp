@@ -12,6 +12,7 @@ class CalendarController extends Controller
     public function calendarEvents(){
         $details=array();
         $events=Event::all();
+        //$events = Event::where('user_id',$userId)->get();
         
         foreach ($details as $detail) {
             $details[]=[
@@ -23,9 +24,9 @@ class CalendarController extends Controller
 
             
         }
-        
+       
         return view('home', ['details' =>$details]);
-        console.log($details);
+       // console.log($details);
     }
     public function calenda(){
         return view('calendar.index');

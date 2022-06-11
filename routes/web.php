@@ -16,7 +16,7 @@ use App\Http\Controllers\CalendarController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -24,12 +24,12 @@ Route::get('/', function () {
 
 
 //registration route 
-Route::get('/registration', [CustAuthController::class, 'registration']);
+Route::get('/registration', [CustAuthController::class, 'registration'])->name('registration');
 //post user
 Route::post('/register_user', [CustAuthController::class, 'registerUser'])->name('register_user');
 
 //login route
-Route::get('/login', [CustAuthController::class, 'login'])->name('login');
+Route::get('/', [CustAuthController::class, 'login'])->name('login');
 Route::post('/user_login', [CustAuthController::class, 'userLogin'])->name('user_login');
 
 

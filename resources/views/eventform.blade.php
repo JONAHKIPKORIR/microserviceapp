@@ -76,13 +76,14 @@
             <tbody>
     
          <tr>
-        
+         @foreach($details as $detail)
             <td>{{$details->eventname}}</td>
             <td>{{$details->description}}</td>
             <td>{{$details->starttime}}</td>
             <td>{{$details->endtime}}</td>
+            @endforeach   
          </tr>
-                  
+               
        </tbody>
      </table>
     </div>

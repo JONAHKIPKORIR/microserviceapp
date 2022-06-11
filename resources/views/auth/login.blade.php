@@ -32,7 +32,7 @@
 
                     <br>
 
-                    <p>Not Registered?  <a href="registration">Register Here</a></p>
+                    <p>Not Registered?  <a href="{{route('registration') }}">Register Here</a></p>
                 </form>
             </div>
         </div>
