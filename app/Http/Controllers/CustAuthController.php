@@ -38,7 +38,7 @@ class CustAuthController extends Controller
         $res=$user->save();
 
         if($res){
-            return back()->with('success','Successfully Registered');
+            return view('home')->with('success','Successfully Registered');
         }
         else{
             return back()->with('fail','Something wrong happened,try again ');
@@ -55,10 +55,11 @@ class CustAuthController extends Controller
         $user=User::where('email', '=', $request->email)->first();
 
         if ($user) {
+            
             if (Hash::check($request->password, $user->password)) {
                 //create session
                 $request->session()->put('loginId',$user->id);
-                return redirect('dashboard');
+                return redirect('home');
             }else {
                 return  back()->with('fail',' Password incorrect');
             }
@@ -69,21 +70,21 @@ class CustAuthController extends Controller
 
 
     }
-    public function dashboard(){
+    public function home(){
 
         $details=array();
 
         if (Session::has('loginId')) {
             $details=User::where('id','=', Session::get('loginId'))->first();
         }
-        return view('dashboard',compact('details'));
+        return view('home',compact('details'));
     }
 
     public function logout(){
         //if user is logged in
         if (Session::has('loginId')) {
             Session::pull('loginId');
-            return redirect('login');
+           return redirect('login');
             
         }
     }

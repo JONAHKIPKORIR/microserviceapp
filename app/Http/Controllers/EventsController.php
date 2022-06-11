@@ -29,7 +29,7 @@ class EventsController extends Controller
         $event->description=$request->description;
         $event->starttime=$request->starttime;
         $event->endtime=$request->endtime;
-        $event->user_id = auth()->user()->id;
+       // $event->user_id = auth()->user()->id;
         //$event->dayofweek=$request->dayofweek;
 
 
@@ -43,4 +43,5 @@ class EventsController extends Controller
         }
     }
 
+    
 }

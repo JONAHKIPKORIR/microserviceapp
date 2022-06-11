@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustAuthController;
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\CalendarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,14 +29,17 @@ Route::get('/registration', [CustAuthController::class, 'registration']);
 Route::post('/register_user', [CustAuthController::class, 'registerUser'])->name('register_user');
 
 //login route
-Route::get('/login', [CustAuthController::class, 'login']);
+Route::get('/login', [CustAuthController::class, 'login'])->name('login');
 Route::post('/user_login', [CustAuthController::class, 'userLogin'])->name('user_login');
 
 
-Route::get('/dashboard', [CustAuthController::class, 'dashboard']);
+Route::get('/home', [CustAuthController::class, 'home'])->name('home')->name('home');
 Route::get('/logout', [CustAuthController::class, 'logout'])->name('logout');
 //
 
 //Events
-Route::get('/eventform', [EventsController::class, 'eventform']);
+Route::get('/eventform', [EventsController::class, 'eventform'])->middleware('auth');
 Route::post('/register_event',[EventsController::class, 'registerEvent'])->name('register_event');
+
+Route::get('/calenda', [CalendarController::class, 'calenda'])->name('calenda');
+Route::get('/calendar', [CalendarController::class, 'calendarEvents'])->name('calendar');
