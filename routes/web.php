@@ -40,6 +40,12 @@ Route::get('/logout', [CustAuthController::class, 'logout'])->name('logout');
 //Events
 Route::get('/eventform', [EventsController::class, 'eventform'])->middleware('auth');
 Route::post('/register_event',[EventsController::class, 'registerEvent'])->name('register_event');
+Route::get('/home',[EventsController::class, 'showEvents']);
+
+
 
 Route::get('/calenda', [CalendarController::class, 'calenda'])->name('calenda');
 Route::get('/calendar', [CalendarController::class, 'calendarEvents'])->name('calendar');
+
+Route::get('/calendar',[CalendarController::class, 'index'])->middleware('auth');
+Route::post('/calendar/create', [CalendarController::class, 'create']);

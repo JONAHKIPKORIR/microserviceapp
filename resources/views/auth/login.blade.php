@@ -27,12 +27,12 @@
                     </div>
 
                     <div class="form-group">    
-                        <button type="submit" name="login" class="btn  btn-success">Login</button>
+                        <button type="submit" name="login" class="btn  btn-success" style="background:cadetblue">Login</button>
                     </div>
 
                     <br>
 
-                    <p>Not Registered?  <a href="{{route('registration') }}">Register Here</a></p>
+                    <p>Not Registered?  <a href="{{route('registration') }}"  style="color:cadetblue;font-size:22px">Register Here</a></p>
                 </form>
             </div>
         </div>

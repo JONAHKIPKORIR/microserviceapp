@@ -1,8 +1,9 @@
 <?php
 
+
 namespace App\Http\Controllers;
 use App\Models\Event;
-
+use Response;
 use Illuminate\Http\Request;
 
 class EventsController extends Controller
@@ -10,16 +11,18 @@ class EventsController extends Controller
     //
 
     public function eventform(){
-        return view('eventform');
+        return view('home');
+        
     }
 
     public function registerEvent(Request $request)
     {
-        $request->validate([
+        $event=$request->validate([
             'eventname'=>'required',
             'description'=>'required',
             'starttime'=>'required',
             'endtime'=>'required',
+            'dayofweek'=>'dayofweek'
             
 
         ]);
@@ -29,12 +32,11 @@ class EventsController extends Controller
         $event->description=$request->description;
         $event->starttime=$request->starttime;
         $event->endtime=$request->endtime;
-       // $event->user_id = auth()->user()->id;
-        //$event->dayofweek=$request->dayofweek;
+       
 
-
+     
         $res=$event->save();
-
+        //dd(request()->all);
         if($res){
             return back()->with('success','Successfully Registered the Event');
         }
@@ -43,7 +45,37 @@ class EventsController extends Controller
         }
     }
 
-    
 
+    public function showEvents(){
+        $sh_events=array();
+        $sh_events=Event::all();
+
+        foreach ( $sh_events as  $sh_event) {
+             $sh_events[]=[
+                'eventname'=>$sh_event->eventname,
+                'description'=>$sh_event->description,
+                'starttime'=>$sh_event->starttime,
+                'endtime'=>$sh_event->endtime,
+                
+            ];
+            
+        // return Response::json($sh_events);
+        }
+        
+
+       // return view('home', ['details' =>$details]);
+       // console.log($details);
+        return view('home')->with('sh_events', $sh_events);
+    }
+
+    public function calendarEvents(){
+        $details=array();
+        $events=Event::all();
+        //$events = Event::where('user_id',$userId)->get();
+        
+        
+       
+        
+    }
     
 }

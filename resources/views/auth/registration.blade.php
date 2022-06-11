@@ -40,13 +40,13 @@
                     </div>
 
                     <div class="form-group">    
-                        <button type="submit" name="register" class="btn  btn-primary">Register</button>
+                        <button type="submit" name="register" class="btn  btn-primary" style="background:cadetblue" >Register</button>
 
                     </div>
 
                     <br>
 
-                    <p>Already Registered?  <a style="background: cadetblue" href="{{route('login')}}">Login Here</a></p>
+                    <p>Already Registered?  <a  href="{{route('login')}}" style="color:cadetblue; font-size:22px">Login Here</a></p>
                 </form>
             </div>
         </div>
